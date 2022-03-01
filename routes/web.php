@@ -19,6 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('/villageois', function () {
-    return view('villageois', [TrajetController::class,"index"]);
+    return view('villageois', [VillageoisController::class,"index"]);
  });
 
