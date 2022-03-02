@@ -9,7 +9,5 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Entreprise extends Model
 {
     use HasFactory;
-    public function Entreprise(){
-        $this-> HasOne(Entreprise::class);
-    }
+   
 }
