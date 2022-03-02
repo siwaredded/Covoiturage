@@ -18,7 +18,7 @@ Route::get('/', function () {
    return view('welcome');
 });
 
-Route::get('/villageois', function () {
-    return view('villageois', [VillageoisController::class,"index"]);
- });
+Route::get("/villageois", 'App\Http\Controllers\VillageoisController@index')->name("villageois");
+Route::get("/villageois/create", 'App\Http\Controllers\VillageoisController@create')->name("villageois.create");
+Route::get("/villageois/create/ajouter", 'App\Http\Controllers\VillageoisController@store')->name("villageois.ajouter");
 

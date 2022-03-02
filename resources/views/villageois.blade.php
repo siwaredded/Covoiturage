@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CrudVillageois</title>
-</head>
-<body>
-    <h3>Liste des villageois</h3>
-    <div>
+@extends ("layouts.master")
 
+
+@section("contenu")
+
+<main>
+
+<div class="my-3.p-3.bg-body.rounded.shadow-sm ">
+    <h3 class="border-bottom.pb-2.mb-4">Liste des villageois</h3>
+    <div><a href="{{route('villageois.create')}}" class="btn btn-primary">Ajouter un nouvel villageois</a></div>   
+    
     <table class="table">
   <thead>
     <tr>
@@ -29,7 +28,7 @@
       <td>{{ $villageois ->prenom }}</td>
       <td>{{ $villageois -> email }}</td>
       <td>{{ $villageois -> telephone }}</td>
-      <td>{{ $villageois -> entreprise_id }}</td>
+      <td>{{ $villageois -> entreprise_libelle }}</td>
       <td>
           <a href="#" class="btn btn-info">Editer</a>
           <a href="#" class="btn btn-danger">Supprimer</a>
@@ -37,8 +36,6 @@
     </tr>
     @endforeach
     
-  </tbody>
-</table>
-    
-</body>
-</html>
+</main>
+
+@endsection
