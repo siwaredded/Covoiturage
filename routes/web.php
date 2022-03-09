@@ -16,9 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
    return view('welcome');
-});
+})->name("welcome");
 
 Route::get("/villageois", 'App\Http\Controllers\VillageoisController@index')->name("villageois");
 Route::get("/villageois/create", 'App\Http\Controllers\VillageoisController@create')->name("villageois.create");
-Route::get("/villageois/create/ajouter", 'App\Http\Controllers\VillageoisController@store')->name("villageois.ajouter");
 
+
+Route::get("/villageois/create/ajouter", 'App\Http\Controllers\VillageoisController@store')->name("villageois.ajouter");
+Route::delete('/villageois/delete/{villageois}', 'App\Http\Controllers\VillageoisController@delete')->name("villageois.supprimer");
+Route::post('/villageois/update/{villageois}', 'App\Http\Controllers\VillageoisController@update')->name("villageois.update");
+
+Route::get("/villageois/{villageois}", 'App\Http\Controllers\VillageoisController@edit')->name("villageois.edit");

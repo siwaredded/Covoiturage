@@ -16,7 +16,11 @@
 <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- Favicons -->
+
 <link rel="icon" href="/images/icon.png" sizes="16x16" type="image/png">
+
+<link rel="icon" href="/images/icon.jpg" sizes="16x16" type="image/png">
+
 <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
 <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
@@ -27,6 +31,7 @@
 
 
     <style>
+  
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -44,46 +49,55 @@
 
     
     <!-- Custom styles for this template -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
   </head>
   <body>
     
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-light" >
     <div class="container-fluid">
-    <a  href="#"><img src="/images/logo.jpg" width="80" height="60">
-      
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <a  href="{{route('welcome')}}"><img src="/images/COVOITURAGE.PNG" width="180" height="30">
+  
+  
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"  aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #1f3a50;" >
+        <span class="navbar-toggler-icon" ></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Chercher un covoiturage</a>
+            <a class="nav-link active" aria-current="page" href="#" style ="color: #1f3a50; margin-left:30px;font-size: 15px;" >Chercher un covoiturage</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#">Publier un covoiturage</a>
+            <a class="nav-link active" href="#" style="color: #1f3a50;margin-left:30px;font-size: 15px;">Publier un covoiturage</a>
           </li>
         
         </ul>
         <div class="px">
-         
-          <button class="btn btn-outline-success" type="submit">Se connecter</button>
 
-
-          <button class="btn btn-outline-success" type="submit">S'inscrire</button>
-    </div>
+       <div class="btn-group" role="group">
+        <button class="btn btn-outline-success" style="margin-right: 20px;"  type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Se connecter </button>
+         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+          <li><a class="dropdown-item" href="#">En tant qu'administrateur</a></li>
+          <li><a class="dropdown-item" href="#">En tant qu'utilisateur</a></li>
+         </ul>
+       </div>
+          
+          <button class="btn btn-outline-success" type="submit"style="margin-right: 40px;">S'inscrire</button>
+     </div>
       </div>
     </div>
   </nav>
 </header>
 
 
- 
-  <main class="container">
+  <main>
     @yield("contenu")
  </main>
     
+
 
  
 

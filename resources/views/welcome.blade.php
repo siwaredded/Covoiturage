@@ -1,33 +1,40 @@
 @extends("layouts.master")
 
 @section("contenu")
-<main style="width: 112%" >
 
-  <div id="myCarousel" class="carousel slide"  data-bs-ride="carousel">
+
+
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel" >
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-color: #1f3a50;"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" style="background-color: #1f3a50;"></button>
       
     </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+    <div class="carousel-inner" >
+      <div class="carousel-item active" >
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" /><img src="/images/carpool1.jpg" alt=""  ></svg>
 
         <div class="container">
            
-          <div class="carousel-caption text-start">
-            <h1>Trouver un covoiturage</h1>
+          <div class="carousel-caption text-start" >
+            
            <p> 
-           <form> 
-            <label>Adresse de départ :</label> 
-            <input type="text" name="text" class="search" placeholder="Adresse de départ">
-            <label>Adresse d'arrivée : </label>
-            <input type="text" name="text" class="search" placeholder="Adresse d'arrivée">
-            <label>Date : </label>
-            <input type="text" name="text" class="search" placeholder="DD/MM/YYYY">
-            </form> </p>
-            <p><a class="btn btn-lg btn-primary" href="#">Rechercher</a></p>
-          </div>
+           <h1 style=" margin-left:400px ; text-align:center ; border-radius: 25px; width: 400px; height: 50px; color:white; background-color:grey;font-weight: bold; margin-bottom:110px";>Trouver un covoiturage</h1>
+           
+           <form > 
+            <!--<label style="color: black;">Adresse de départ :</label> -->
+            <input type="text" name="text" class="search" placeholder="  Adresse de départ" style=" background-color: white;  border-radius: 25px; height: 50px; margin-left: 250px ;">
+           <!-- <label style="color: black;">Adresse d'arrivée : </label>-->
+            <input type="text" name="text" class="search" placeholder="  Adresse d'arrivée" style=" background-color: white;  border-radius:25px; height:50px;">
+           <!-- <label style="color: black;">Date : </label>-->
+            <input type="date" name="text" class="search" placeholder="  DD/MM/YYYY" style="background-color: white; border-radius: 25px; height: 50px;" >
+           <!-- <input type="number" placeholder="1" style="  background-color: white;  border-radius: 20px; height: 50px;  width:50px">-->
+            <button class="btn btn-lg btn-primary" style="text-align:center; border-radius: 25px;" href="#" >Rechercher</button>
+            </form>
+           </div>
+          
+      
+        
          
         </div>
       </div>
@@ -53,11 +60,16 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+  
+    
+
+    
+
   <!-- Marketing messaging and featurettes
   ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
 
-  <div class="container marketing">
+  <div class=" marketing" >
 
     <!-- Three columns of text below the carousel -->
     <div class="row">
@@ -83,12 +95,10 @@
         <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
+
+
+    
  
-
-
-
-    <!-- /END THE FEATURETTES -->
-
   <!-- FOOTER -->
   <div class="b-example-divider"></div>
 
@@ -99,7 +109,7 @@
         <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
           <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
         </div>
-        <div>
+        <div >
           <h2>A propos</h2>
           <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
           <a href="#" class="btn btn-primary">
@@ -135,6 +145,5 @@
   </div>
   </footer>
   
-</main>
 
 @endsection

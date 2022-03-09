@@ -20,6 +20,15 @@ class VillageoisController extends Controller
         $entreprises = Entreprise::all();
         return view("createVillageois",compact("entreprises"));
      }
+
+
+     public function edit(Villageois $villageois) {
+
+      $entreprises = Entreprise::all();
+      return view("EditVillageois",compact("villageois","entreprises"));
+   }
+
+
      public function store(Request $request) {
 
       $request->validate([
@@ -31,5 +40,30 @@ class VillageoisController extends Controller
       ]);
       Villageois::create($request->all());
       return back() ->with("success","villageois ajouté avec succés!");
+   }
+
+   public function delete( Villageois $villageois){
+      $villageois->delete();
+      return back()->with("successDelete","Employé supprimé avec succès!");
+   }
+   
+   public function update(Request $request, villageois $villageois) {
+
+      $request->validate([
+         "nom"=>"required",
+         "prenom"=>"required",
+         "email"=>"required",
+         "telephone"=>"required",
+         "entreprise_id"=>"required"
+      ]);
+
+      $villageois->update([
+         "nom"=>$request->nom,
+         "prenom"=>$request->prenom,
+         "email"=>$request->email,
+         "telephone"=>$request->telephone,
+         "entreprise_id"=>$request->entreprise_id
+      ]);
+      return back() ->with("success","employé mis a jour avec succés!");
    }
 }

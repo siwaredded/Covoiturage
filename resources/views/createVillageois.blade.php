@@ -3,7 +3,7 @@
 @section("contenu")
 
 
-<div class="my-3.p-3.bg-body.rounded.shadow-sm">
+<div class="my-3.p-3.bg-body.rounded.shadow-sm" style="padding-left: 20px; padding-top:20px ;">
     <h3 class="border-bottom.pb-2.mb-4">Ajout d'un nouvel villageois</h3>
 
 <div class="mt-4">
@@ -23,7 +23,7 @@
 </ul>
 @endif
 
-<form style="width:65%;" method="post" action="{{route('villageois.ajouter')}}">
+<form style="width:65%;" method="put" action="{{route('villageois.ajouter')}}">
 @csrf
 
   <div class="mb-3">
@@ -32,9 +32,9 @@
   </div>
   <div class="mb-3">
     <label for="exampleInputlastname"  class="form-label">Prénom</label>
-    <input type="password" class="form-control" required name="prenom" >
+    <input type="name" class="form-control" required name="prenom" >
   </div>
-
+  
   <div class="mb-3">
     <label for="exampleInputEmail" class="form-label">Email</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required name="email">
@@ -48,15 +48,16 @@
 
     <div class="mb-3">
     <label for="exampleInputEntre" class="form-label">Entreprise</label>
-    <select class="form-control" required name="entreprise_libelle" >
-        <option value=""></option>
+    <select class="form-control" name="entreprise_id" >
         @foreach($entreprises as $entreprise)
         <option value="{{$entreprise->id}}">{{$entreprise->libelle}}</option>
         @endforeach
-    
-        <div>
+    </select>
+      </div>
+
+      <div>
      <button type="submit" class="btn btn-primary">Enregistrer</button>
-     <a href="{route('villageois')}}" class="btn btn-danger">Annuler</button>
+     <button href="{route('villageois')}}" class="btn btn-danger">Annuler</button>
     </div>
       
     

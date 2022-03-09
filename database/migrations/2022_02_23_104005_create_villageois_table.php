@@ -19,7 +19,9 @@ class CreateVillageoisTable extends Migration
             $table->string("prenom");
             $table->string("email");
             $table->string("telephone");
-            $table->foreignId("entreprise_id") ->constrained("entreprises");
+            $table->foreignId("entreprise_id") ->constrained("entreprises")->cascadeOnDelete();
+           
+            
             $table->timestamps();
         });
 
@@ -33,7 +35,8 @@ class CreateVillageoisTable extends Migration
      */
     public function down()
     {   Schema::table("villageois", function(Blueprint $table){
-        $table -> dropConstrainedForeignId("classe_id");
+        $table -> dropConstrainedForeignId("entreprise_id");
+        $table->dropColumn("entreprise_id");
       });
         Schema::dropIfExists('villageois');
     }
