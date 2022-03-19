@@ -27,7 +27,7 @@
            <!-- <label style="color: black;">Adresse d'arrivée : </label>-->
             <input type="text" name="text" class="search" placeholder="  Adresse d'arrivée" style=" background-color: white;  border-radius:25px; height:50px;">
            <!-- <label style="color: black;">Date : </label>-->
-            <input type="date" name="text" class="search" placeholder="  DD/MM/YYYY" style="background-color: white; border-radius: 25px; height: 50px;" >
+            <input type="date" name="text" class="search" required placeholder="  DD/MM/YYYY" style="background-color: white; border-radius: 25px; height: 50px;" >
            <!-- <input type="number" placeholder="1" style="  background-color: white;  border-radius: 20px; height: 50px;  width:50px">-->
             <button class="btn btn-lg btn-primary" style="text-align:center; border-radius: 25px;" href="#" >Rechercher</button>
             </form>

@@ -31,7 +31,44 @@
 
 
     <style>
-  
+       /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -55,7 +92,7 @@
   <body>
     
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-light" >
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-white" >
     <div class="container-fluid">
     <a  href="{{route('welcome')}}"><img src="/images/COVOITURAGE.PNG" width="180" height="30">
   
@@ -67,10 +104,10 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#" style ="color: #1f3a50; margin-left:30px;font-size: 15px;" >Chercher un covoiturage</a>
+            <a class="nav-link active" aria-current="page" href="{{route('trajets.rechercher')}}" style ="color: #1f3a50; margin-left:30px;font-size: 15px;" >Chercher un covoiturage</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#" style="color: #1f3a50;margin-left:30px;font-size: 15px;">Publier un covoiturage</a>
+            <a class="nav-link active" href="{{route('trajets.proposer')}}" style="color: #1f3a50;margin-left:30px;font-size: 15px;">Publier un covoiturage</a>
           </li>
         
         </ul>
@@ -79,13 +116,13 @@
        <div class="btn-group" role="group">
         <button class="btn btn-outline-success" style="margin-right: 20px;"  type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           Se connecter </button>
-         <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-          <li><a class="dropdown-item" href="#">En tant qu'administrateur</a></li>
-          <li><a class="dropdown-item" href="#">En tant qu'utilisateur</a></li>
-         </ul>
+         
        </div>
           
-          <button class="btn btn-outline-success" type="submit"style="margin-right: 40px;">S'inscrire</button>
+           <a class="btn btn-outline-success" id="myBtn" href="{{route('register')}}"  style="margin-right: 40px;">S'inscrire</a>
+        
+
+
      </div>
       </div>
     </div>
@@ -101,7 +138,33 @@
 
  
 
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+      // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+    </script>
 
       
   </body>

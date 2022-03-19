@@ -27,3 +27,8 @@ Route::delete('/villageois/delete/{villageois}', 'App\Http\Controllers\Villageoi
 Route::post('/villageois/update/{villageois}', 'App\Http\Controllers\VillageoisController@update')->name("villageois.update");
 
 Route::get("/villageois/{villageois}", 'App\Http\Controllers\VillageoisController@edit')->name("villageois.edit");
+Route::get("/rechercherTrajet}", 'App\Http\Controllers\TrajetsController@RechercheTrajet')->name("trajets.rechercher");
+Route::get("/proposerTrajet}", 'App\Http\Controllers\TrajetsController@ProposerTrajet')->name("trajets.proposer");
+
+Route::get("/login", 'App\Http\Controllers\Auth\LoginController@edit')->name("login");
+Route::get("/register", 'App\Http\Controllers\Auth\RegisterController@edit')->name("register");
