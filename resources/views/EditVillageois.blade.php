@@ -42,7 +42,7 @@
 
   <div class="mb-3">
     <label for="exampleInputphone" class="form-label">Telephone</label>
-    <input type="nom" class="form-control" required name="telephone" value="{{$villageois->telephone}}">
+    <input type="number" class="form-control" required name="telephone" value="{{$villageois->telephone}}">
 
 
 

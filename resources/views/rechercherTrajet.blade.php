@@ -5,7 +5,7 @@
 
 <div class="container-fluid pt-5" style="background-color: white;padding-bottom: 150px">
     <div class="col-lg-10 mx-auto " style="background-color: #ecf0f5;">
-    	<div class="row p-4" style="background: #008ECC;color: white;"><span style="width: auto;"><a href="/client" style="color: white;" data-toggle="tooltip" data-placement="top" title="Retour au tableau de bord"><i class="fa fa-backward"></i></a></span><span  style="width: auto; " class="mx-auto h3"  >RECHERCHER UN TRAJET</span></div>
+    	<div class="row p-4" style="background: #008ECC;color: white;"><span style="width: auto;"><a href="{{route('welcome')}}" style="color: white;" data-toggle="tooltip" data-placement="top" title="Back to home page"><i class="fa fa-backward"></i></a></span><span  style="width: auto; " class="mx-auto h3"  >RECHERCHER UN TRAJET</span></div>
     	     	
     	
         	<div class="row offset-1 p-5 "   > 
@@ -17,29 +17,17 @@
                         	{{csrf_field()}}
                         		<div class="row">
                         			<div class="col ">
-                        				  <input list="ville_depart" name="ville_depart" id="ville_depart" class="form-control" placeholder="Adresse de départ" required="required">
-                                          <datalist id="browsers">
-                                            <option value="Edge">
-                                            <option value="Firefox">
-                                            <option value="Chrome">
-                                            <option value="Opera">
-                                            <option value="Safari">
-                                          </datalist>
+                        				  <input list="ville_depart" name="depart" id="ville_depart" class="form-control" placeholder="Adresse de départ" required="required">
+            
                         			</div>
                         			
                         			<div class="col">
-                        				  <input list="ville_arriver" name="ville_arrivee" id="ville_arriver" class="form-control" placeholder="Adresse d'arrivée" required="required">
-                                          <datalist id="ville_arriver">
-                                            <option value="Edge">
-                                            <option value="Firefox">
-                                            <option value="Chrome">
-                                            <option value="Opera">
-                                            <option value="Safari">
-                                          </datalist>
+                        				  <input  name="ville_arrivee" id="arrivee" class="form-control" placeholder="Adresse d'arrivée" required="required">
+                                       
                         			</div>
                         			
                         			<div class="col">       			
-                        			  <input type="date" name="date_depart" id="date_depart" class="form-control" required="required">
+                        			  <input type="date" name="date_depart" id="date" class="form-control" required="required">
                                       
                         			</div>
                         			<div class="col ">
@@ -52,13 +40,13 @@
                     	</div>
             	
                     	@if(!empty($trajet) )
-                    	@foreach($trajet as $trajetInfo)
+                    	@foreach($trajet as $trajet)
                     		
                 	    <div class="col shadow mt-5" >
                     		<div class="container-fluid" >
                     			<div class="container pt-2">
                     				<div class="row">
-                    					<div><img alt="" src="{{url('/img/default-user.jpg')}}" width="100px" height="100px" class="rounded-circle"></div>
+                    					<div><img alt="" src="{{asset('images/1.jpg')}}" width="100px" height="100px" class="rounded-circle"></div>
                     					<div class="h6">{{$trajetInfo->nom}} {{$trajetInfo->prenom}}</div>
                     					<div class="h6">{{$trajetInfo->numero_de_telephone}}</div>
                     				</div>
@@ -66,33 +54,32 @@
                     				<div class="row offset-2">
                     					<div class="col">
                     						<div class="h6">Depart :</div>
-                    						<div class="h6">Arriver :</div>
-                    						<div class="h6">Lieu depart :</div>
+                    						<div class="h6">Arrivée :</div>
+                    						<div class="h6">Date</div>
                     						<div class="h6">Lieu arriver :</div>
                     					</div>
                     					<div class="col-lg-2 " style="border-right: 2px #212529 solid;">
-                    						<div class="h6">{{$trajetInfo->ville_depart}}</div>
-                    						<div class="h6">{{$trajetInfo->ville_arriver}}</div>
-                    						<div class="h6">{{$trajetInfo->lieux_depart}}</div>
-                    						<div class="h6">{{$trajetInfo->lieu_arriver}}</div>
+                    						<div class="h6">{{$trajet->depart}}</div>
+                    						<div class="h6">{{$trajet->arrivee}}</div>
+                    						<div class="h6">{{$trajet->date}}</div>
+                    						
                     					</div>
                     					
                     					<div class="col-lg-4 ms-4 pr-4">
                     						<div class="h6">Date depart :</div>
                     						<div class="h6">Heure depart :</div>
                     						<div class="h6">Place dispos :</div>
-                    						<div class="h6">Prix trajet :</div>
-                    					</div>
+                    			
                     					<div class="col">
                     						<div class="h6">{{$trajetInfo->date_depart}}</div>
                     						<div class="h6">{{$trajetInfo->heure_depart}}</div>
                     						<div class="h6">{{$trajetInfo->nbre_places}}</div>
-                    						<div class="h6">{{$trajetInfo->prix_voyages}}</div>
+                    					
                     					</div>
                     				</div>
                     				
                     				<div class="row pt-4 pb-4">
-                    					<div><a class="btn btn-info float-right" href="{{url('ajoutPanier/'.$trajetInfo->trajet_id)}}">Voir detail du trajet</a></div>
+                    				
                     				
                     				</div>
                     			

@@ -9,6 +9,9 @@
     <title>Covoiturage</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
 
     
 
@@ -94,7 +97,7 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-white" >
     <div class="container-fluid">
-    <a  href="{{route('welcome')}}"><img src="/images/COVOITURAGE.PNG" width="180" height="30">
+    <a  href="{{route('welcome')}}"><img src="{{ asset('images/COVOITURAGE.PNG') }}" width="180" height="30">
   
   
 
