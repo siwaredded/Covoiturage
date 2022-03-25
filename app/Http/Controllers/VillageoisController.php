@@ -21,7 +21,7 @@ class VillageoisController extends Controller
    {
       $entreprises = Entreprise::get();
 
-      return view("villageois.create", compact("entreprises"));
+      return view("createVillageois", compact("entreprises"));
    }
 
    public function store(StoreVillageoisRequest $request)
