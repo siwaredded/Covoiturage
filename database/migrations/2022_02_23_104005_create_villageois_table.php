@@ -18,7 +18,7 @@ class CreateVillageoisTable extends Migration
             $table->string("nom");
             $table->string("prenom");
             $table->string("email");
-            $table->string("telephone");
+            $table->integer("telephone");
             $table->foreignId("entreprise_id") ->constrained("entreprises")->cascadeOnDelete();
            
             

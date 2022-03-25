@@ -51,10 +51,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
+Route::get("/rechercherTrajet}", 'App\Http\Controllers\TrajetsController@RechercheTrajet')->name("trajets.rechercher");
+Route::get("/proposerTrajet}", 'App\Http\Controllers\TrajetsController@ProposerTrajet')->name("trajets.proposer");
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get("/login", 'App\Http\Controllers\Auth\LoginController@edit')->name("login");
+Route::get("/register", 'App\Http\Controllers\Auth\RegisterController@edit')->name("register");

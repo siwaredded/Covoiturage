@@ -12,7 +12,7 @@
     </div>
     <div class="carousel-inner" >
       <div class="carousel-item active" >
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" /><img src="/images/carpool1.jpg" alt=""  ></svg>
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" /><img src="{{asset('/images/carpool1.jpg')}}" ></svg>
 
         <div class="container">
            
@@ -21,29 +21,30 @@
            <p> 
            <h1 style=" margin-left:400px ; text-align:center ; border-radius: 25px; width: 400px; height: 50px; color:white; background-color:grey;font-weight: bold; margin-bottom:110px";>Trouver un covoiturage</h1>
            
-           <form style="max-width:400px;margin:auto" > 
-           <div class="input-icons">
-             <i class="fa fa-map-marker icon" aria-hidden="true"></i>
-            <!--<label style="color: black;">Adresse de départ :</label> -->
-            <input type="text" name="text" class="search" required placeholder="  Adresse de départ" style=" background-color: white;  border-radius: 25px; height: 40px; ">
-           </div>
-            <div class="input-icons">
-            <i class="fa fa-map-marker icon" aria-hidden="true"></i>
-
-            <!-- <label style="color: black;">Adresse d'arrivée : </label>-->
-            <input type="text" name="text" class="search"  required  placeholder="  Adresse d'arrivée" style=" background-color: white;  border-radius:25px; height:40px;">
-            </div>
-            <div class="input-icons">
-            <!-- <label style="color: black;">Date : </label>-->
-            <input type="date" name="text" class="search" required  placeholder="  DD/MM/YYYY" style=" color:grey; background-color: white; border-radius: 25px; height: 40px;" >
-            </div>
-            <div class="input-icons">
-            <i class="fa fa-user icon" aria-hidden="true" style="margin-right: 50px;"></i>
-         <input type="number" placeholder="1" style="  background-color: white;  border-radius: 20px; height: 40px;  width:100px">
-       
-        </div>
-         <button class="btn btn-lg btn-primary" style="text-align:center; border-radius: 25px;" href="#" >Rechercher</button>
-            </form>
+           <form action="/rechercher" method="post" id="searchform"  name="searchform">
+                        	{{csrf_field()}}
+                        		<div class="row">
+                        			<div class="col ">
+                        				  <input list="ville_depart" name="ville_depart" id="ville_depart" class="form-control" placeholder="Adresse de départ"  border-radius:40px; required="required">
+            
+                        			</div>
+                        			
+                        			<div class="col">
+                        				  <input  name="ville_arrivee" id="ville_arriver" class="form-control" placeholder="Adresse d'arrivée"  border-radius:40px; required="required">
+                                       
+                        			</div>
+                        			
+                        			<div class="col">       			
+                        			  <input type="date" name="date_depart" id="date_depart" class="form-control"  border-radius:40px; required="required">
+                                      
+                        			</div>
+                        			<div class="col ">
+                        				      <button class="btn btn-outline-success" id="recherche" type="submit">Rechercher </button>                        				
+                        			</div>
+                        		
+                        		</div>
+                               
+                        	</form> 
            </div>
           
       
