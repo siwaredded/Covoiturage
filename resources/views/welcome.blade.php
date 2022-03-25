@@ -21,15 +21,28 @@
            <p> 
            <h1 style=" margin-left:400px ; text-align:center ; border-radius: 25px; width: 400px; height: 50px; color:white; background-color:grey;font-weight: bold; margin-bottom:110px";>Trouver un covoiturage</h1>
            
-           <form > 
+           <form style="max-width:400px;margin:auto" > 
+           <div class="input-icons">
+             <i class="fa fa-map-marker icon" aria-hidden="true"></i>
             <!--<label style="color: black;">Adresse de départ :</label> -->
-            <input type="text" name="text" class="search" placeholder="  Adresse de départ" style=" background-color: white;  border-radius: 25px; height: 50px; margin-left: 250px ;">
-           <!-- <label style="color: black;">Adresse d'arrivée : </label>-->
-            <input type="text" name="text" class="search" placeholder="  Adresse d'arrivée" style=" background-color: white;  border-radius:25px; height:50px;">
-           <!-- <label style="color: black;">Date : </label>-->
-            <input type="date" name="text" class="search" placeholder="  DD/MM/YYYY" style="background-color: white; border-radius: 25px; height: 50px;" >
-           <!-- <input type="number" placeholder="1" style="  background-color: white;  border-radius: 20px; height: 50px;  width:50px">-->
-            <button class="btn btn-lg btn-primary" style="text-align:center; border-radius: 25px;" href="#" >Rechercher</button>
+            <input type="text" name="text" class="search" required placeholder="  Adresse de départ" style=" background-color: white;  border-radius: 25px; height: 40px; ">
+           </div>
+            <div class="input-icons">
+            <i class="fa fa-map-marker icon" aria-hidden="true"></i>
+
+            <!-- <label style="color: black;">Adresse d'arrivée : </label>-->
+            <input type="text" name="text" class="search"  required  placeholder="  Adresse d'arrivée" style=" background-color: white;  border-radius:25px; height:40px;">
+            </div>
+            <div class="input-icons">
+            <!-- <label style="color: black;">Date : </label>-->
+            <input type="date" name="text" class="search" required  placeholder="  DD/MM/YYYY" style=" color:grey; background-color: white; border-radius: 25px; height: 40px;" >
+            </div>
+            <div class="input-icons">
+            <i class="fa fa-user icon" aria-hidden="true" style="margin-right: 50px;"></i>
+         <input type="number" placeholder="1" style="  background-color: white;  border-radius: 20px; height: 40px;  width:100px">
+       
+        </div>
+         <button class="btn btn-lg btn-primary" style="text-align:center; border-radius: 25px;" href="#" >Rechercher</button>
             </form>
            </div>
           
