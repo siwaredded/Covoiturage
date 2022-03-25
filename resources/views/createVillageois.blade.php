@@ -28,7 +28,7 @@
 
   <div class="mb-3">
     <label for="exampleInputname" class="form-label">Nom</label>
-    <input type="nom" class="form-control" required name="nom">
+    <input type="nom" class="form-control" required name="nom" value="{{ old('nom') }}">
   </div>
   <div class="mb-3">
     <label for="exampleInputlastname"  class="form-label">Prénom</label>

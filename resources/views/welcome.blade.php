@@ -12,34 +12,36 @@
     </div>
     <div class="carousel-inner" >
       <div class="carousel-item active" >
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" /><img src="{{asset('/images/carpool1.jpg')}}" ></svg>
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" /><img src="{{asset('/images/banner1.jpg')}}" ></svg>
 
         <div class="container">
            
           <div class="carousel-caption text-start" >
             
            <p> 
-           <h1 style=" margin-left:400px ; text-align:center ; border-radius: 25px; width: 400px; height: 50px; color:white; background-color:grey;font-weight: bold; margin-bottom:110px";>Trouver un covoiturage</h1>
-           
+        
+
+           <h1 style=" margin-left:400px ; text-align:center ; border-radius: 25px; width: 400px; height: 100px; color:white;   font-size:200%	;font-weight: bold; margin-bottom:250px";>Trouver un covoiturage</h1>
+
            <form action="/rechercher" method="post" id="searchform"  name="searchform">
                         	{{csrf_field()}}
                         		<div class="row">
                         			<div class="col ">
-                        				  <input list="ville_depart" name="ville_depart" id="ville_depart" class="form-control" placeholder="Adresse de départ"  border-radius:40px; required="required">
+                        				  <input list="ville_depart" name="ville_depart" id="ville_depart" class="form-control" placeholder="Adresse de départ"  style="border-radius:40px; margin-left:100px; "required="required">
             
                         			</div>
                         			
                         			<div class="col">
-                        				  <input  name="ville_arrivee" id="ville_arriver" class="form-control" placeholder="Adresse d'arrivée"  border-radius:40px; required="required">
+                        				  <input  name="ville_arrivee" id="ville_arriver" class="form-control" placeholder="Adresse d'arrivée" style=" border-radius:40px; margin-left:100px;" required="required">
                                        
                         			</div>
                         			
                         			<div class="col">       			
-                        			  <input type="date" name="date_depart" id="date_depart" class="form-control"  border-radius:40px; required="required">
+                        			  <input type="date" name="date_depart" id="date_depart" class="form-control" style=" border-radius:40px; margin-left:100px;" required="required">
                                       
                         			</div>
                         			<div class="col ">
-                        				      <button class="btn btn-outline-success" id="recherche" type="submit">Rechercher </button>                        				
+                        				      <button class="btn btn-outline-success" id="recherche" type="submit" style=" margin-left:100px; background-color:white;">Rechercher </button>                        				
                         			</div>
                         		
                         		</div>

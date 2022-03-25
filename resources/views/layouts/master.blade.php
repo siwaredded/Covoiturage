@@ -8,7 +8,11 @@
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.88.1">
   <title>Covoiturage</title>
-
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,500"
+      rel="stylesheet"
+    />
   <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -19,9 +23,9 @@
 
   <!-- Favicons -->
 
-  <link rel="icon" href="/images/icon.png" sizes="16x16" type="image/png">
+  <link rel="icon" href="{{ asset('/images/icon.png') }}" sizes="16x16" type="image/png">
 
-  <link rel="icon" href="/images/icon.jpg" sizes="16x16" type="image/png">
+  <link rel="icon" href="{{ asset('/images/icon.jpg') }}" sizes="16x16" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
   <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -30,7 +34,6 @@
   <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
   <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
   <meta name="theme-color" content="#7952b3">
-
 
   <style>
     .input-icons i {
@@ -113,6 +116,7 @@
   <!-- Custom styles for this template -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/carousel.css') }}" rel="stylesheet">
+  @yield('css')
 </head>
 
 <body>
@@ -120,7 +124,7 @@
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-white">
       <div class="container-fluid">
-        <a href="{{route('welcome')}}"><img src="/images/COVOITURAGE.PNG" width="180" height="30">
+        <a href="{{route('welcome')}}"><img src="{{ asset('/images/COVOITURAGE.PNG') }}" width="180" height="30">
 
 
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #1f3a50;">
@@ -130,6 +134,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{route('trajets.rechercher')}}" style="color: #1f3a50; margin-left:30px;font-size: 15px;">Chercher un covoiturage</a>
+                <!-- <a class="nav-link active" aria-current="page" href="{{route('trajets.rechercher')}}" style="color: #1f3a50; margin-left:30px;font-size: 15px;">Chercher un covoiturage</a> -->
               </li>
               <li class="nav-item">
                 <a class="nav-link active" href="{{route('trajets.proposer')}}" style="color: #1f3a50;margin-left:30px;font-size: 15px;">Publier un covoiturage</a>
@@ -206,6 +211,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdqITroj6SraBhyhiViWwjOnqQHaSBRn4&libraries=places"></script>
 
 
   <script src="{{ asset('js/bootstrap.bundle.min.js') }}" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
@@ -242,5 +248,6 @@ window.onclick = function(event) {
   }
 }
     </script>
+    @yield('js')
 </body>
 </html>
