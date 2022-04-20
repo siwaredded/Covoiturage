@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\StoreTrajetsRequest;
 use App\Models\Trajets;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 
@@ -14,7 +15,20 @@ class TrajetsController extends Controller
     //    return view('rechercherTrajet');
 
     //}
+    public function footer1()
+    {
+      
+            return view('comment');
 
+
+        }
+        public function footer2()
+        {
+          
+                return view('QuiSommesNous');
+    
+    
+            }
     public function RechercheTrajet()
     {
         $trajetsDispo = Trajets::where([
@@ -34,52 +48,55 @@ class TrajetsController extends Controller
         return view('proposerTrajet');
     }
 
-    public function StoreTrajet(Request $request)
-    {
+    public function store(Request $request)
+   { 
+    $request->user_id = Auth::user()->id;
+      Trajets::create($request->all());
+      return back()->with("success", "Trajet publié avec succés!");
+   }
 
-        $request()->validate([
-            'trj_depart' => ['required'],
+       // Trajets::create([
+          //  'nom' => auth()->user()->nom,
+           // 'prenom' => auth()->user()->prenom,
+           // 'numero_de_telephone' => auth()->user()->numero_de_telephone,
+           // 'email' => auth()->user()->email,
+           // 'trajet_id' => auth()->user()->id,
+            //'trj_depart' => request('trj_depart'),
+            //'trj_destinationr' => request('trj_destination'),
+           // 'trj_date' => request('trj_date'),
+            //'trj_heure' => request('trj_heure'),
+            //'trj_nbre_places' => request('nbre_places'),
 
-            'trj_destination' => ['required'],
+        //]);
+        //return back()->with("success", "Trajet enregistré");
+    
 
-            'trj_date' => ['required', 'date'],
+    // afficher tous les trajets
+    public function index()
+{
+    $trajets = Trajets::all();
 
-            'trj_heure' => ['date_format:H:i'],
+    return view('index', compact('trajets'));
+}
 
-            'trj_nbre_places' => ['required'],
+  
 
-            'trj_info' => ['sometimes']
 
-        ]);
-        Trajets::create($request->all());
-        return back()->with("success", "Trajet publié avec succés!");
-
-        Trajets::create([
-            'nom' => auth()->user()->nom,
-            'prenom' => auth()->user()->prenom,
-            'numero_de_telephone' => auth()->user()->numero_de_telephone,
-            'email' => auth()->user()->email,
-            'trajet_id' => auth()->user()->id,
-            'trj_depart' => request('trj_depart'),
-            'trj_destinationr' => request('trj_destination'),
-            'trj_date' => request('trj_date'),
-            'trj_heure' => request('trj_heure'),
-            'trj_nbre_places' => request('nbre_places'),
-
-        ]);
-        return back()->with("success", "Trajet enregistré");
+    public function Supprimer(Trajets $trajets)
+    { $trajets->delete();
+        return back()->with("successDelete", "votre publication a été supprimé avec succès!");
+      
     }
 
-    public function ModifierTrajet()
+    public function ModifierPublication(trajets $trajets)
     {
-        return view('');
-    }
-
-    public function SupprimerTrajet()
-    {
-        return view('');
-    }
+      
+   }
     public function ReserverTrajet()
+    {
+        return view('');
+    }
+    public function AnnulerReservation()
     {
         return view('');
     }

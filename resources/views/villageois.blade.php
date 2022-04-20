@@ -6,8 +6,8 @@
 <main>
 
 <div class="my-3.p-3.bg-body.rounded.shadow-sm " style="padding-left: 20px; padding-top:20px ">
-    <h3 class="border-bottom.pb-2.mb-4">Liste des villageois</h3>
-    <div><a href="{{route('villageois.create')}}" class="btn btn-primary">Ajouter un nouvel villageois</a></div> 
+    <h3 class="border-bottom.pb-2.mb-4"></h3>
+   
 
     @if (session()->has(("successDelete")))
    <div class="alert alert-success">
@@ -24,23 +24,32 @@
       <th scope="col">email</th>
       <th scope="col">telephone</th>
       <th scope="col">entreprise_id</th>
+  
     </tr>
   </thead>
   <tbody>
-      @foreach($villageois as $villageois)
+      @foreach( $users as $user)
     <tr>
       <th scope="row">{{ $loop->index + 1 }}</th>
-      <td>{{ $villageois -> nom }}</td>
-      <td>{{ $villageois ->prenom }}</td>
-      <td>{{ $villageois ->email }}</td>
-      <td>{{ $villageois ->telephone }}</td>
-      <td>{{ $villageois ->entreprise_id }}</td>
+    
+      <td>{{ $user->name }}</td>
+      <td>{{ $user->prenom }}</td>
+      <td>{{ $user->email }}</td>
+      <td>{{ $user->telephone }}</td>
+      <td>{{ $user->entreprise_id }}</td>
       <td>
-          <a href="{{route('villageois.edit',['villageois'=>$villageois->id])}}" class="btn btn-info">Editer</a>
-          <a href="#" class="btn btn-danger" onclick=" if (confirm('Voulez-vous vraiment supprimer cet employé?')){document.getElementById('form-{{$villageois->id}}').submit()}">Supprimer</a>
-          <form id="form-{{$villageois->id}}" action ="{{route('villageois.supprimer',['villageois'=>$villageois->id])}}" method="post">
+        
+          <a href="#" class="btn btn-danger" onclick=" if (confirm('Voulez-vous vraiment supprimer cet employé?')){document.getElementById('form-{{$user->id}}').submit()}">Supprimer</a>
+          <form id="form-{{$user->id}}" action ="{{route('villageois.supprimer',['user'=>$user->id])}}" method="post">
             @csrf
             <input type="hidden" name="_method" value="delete">
+          </form>
+      </td>
+      <td>
+        <button href="" class="btn btn-success" onclick=" if (confirm('Voulez-vous vraiment ajouter cet employé à la liste des administrateurs?')){document.getElementById('form-update-{{$user->id}}').submit()}">Make admin</a>
+          <form id="form-update-{{$user->id}}" action ="{{route('make.admin',['user'=>$user->id])}}" method="post">
+            @csrf
+            @method('PUT')
           </form>
       </td>
     </tr>

@@ -15,7 +15,6 @@
     />
   <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/carousel/">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  
 
 
   <!-- Bootstrap core CSS 
@@ -35,7 +34,6 @@
   <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
   <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
   <meta name="theme-color" content="#7952b3">
-
 
   <style>
     .input-icons i {
@@ -145,43 +143,16 @@
 
 
           </div>
-          <?php
-use Illuminate\Support\Facades\Auth;
-?>
-          @if(Route::has('login'))
-          @auth
-          @if(Auth::user()->utype === 'ADM')
-          <li class="menu-item menu-item-has-children parent">
-            <a title="My account" href="" >My account ({{Auth::user()->name}}) <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-            <ul class="submenu curency">
-              <li class="menu-item">
-                <a title="Dashboard" href="{{route('admin.home')}}">Dashboard</a>
-              </li>
-
-            
-               
-        @csrf
-        <div class="nav-item">
-            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                        this.closest('form').submit(); " role="button">
-                <i class="fas fa-sign-out-alt"></i>
-
-                {{ __('Log Out') }}
-            </a>
-        </div>
-    </form>
+  
+         
             </ul>
 
 
-          </li>
-          @else
-            <a   title="My account" href="" class="btn btn-outline-success" >My account ({{Auth::user()->name}})  </a>
+         
+            <a  class="nav-link" title="My account" href="#" style="background-color: #888; color:#1f3a50; border-radius:40px; margin-right:20px" >My account ({{Auth::user()->name}}) :  </a>
              
-                <a  title="Dashboard" href="{{route('user.dashboard')}}" class="btn btn-outline-success" style="margin-right: 20px;margin-left: 30px;" >Dashboard</a>
-                
-               
-               
-              
+                <a  title="Dashboard" href="{{route('user.dashboard')}}" class="btn btn-outline-success" style="margin-right: 20px;" >Dashboard</a>
+           
               <form method="POST" action="{{ route('logout') }}">
         @csrf
         
@@ -194,22 +165,8 @@ use Illuminate\Support\Facades\Auth;
     </form>
 
 
-          @endif
-
-          @else
-          <div class="px">
-
-            <div class="btn-group" role="group">
-
-
-              <a class="btn btn-outline-success" id="myBtn" style="margin-right: 40px;" href="{{route('login')}}">Se connecter </a>
-              <a class="btn btn-outline-success" id="myBtn" href="{{route('register')}}" style="margin-right: 40px;">S'inscrire</a>
-
-            </div>
-          </div>
-          @endif
-
-          @endif
+        
+         
     </nav>
   </header>
 
